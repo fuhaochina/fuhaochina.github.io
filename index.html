@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234c5a50'/%3E%3Ctext x='32' y='43' font-size='34' font-family='PingFang SC,Microsoft YaHei,sans-serif' font-weight='600' fill='%23fff' text-anchor='middle'%3E%E5%90%8D%3C/text%3E%3C/svg%3E">
+<title>傅浩 · 商务名片</title>
+<meta name="description" content="傅浩，中冶武勘工程技术有限公司技术质量与数字化管理部副部长。点击即可拨打电话、一键保存到手机通讯录。">
+
+<!-- 微信/朋友圈分享卡片（分享链接时读取这里的静态内容） -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="傅浩 · 商务名片">
+<meta property="og:description" content="中冶武勘工程技术有限公司 · 技术质量与数字化管理部副部长">
+<meta property="og:image" content="https://fuhaochina.github.io/fuhao-card/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="傅浩 · 技术质量与数字化管理部 副部长 · 中冶武勘工程技术有限公司">
+<meta property="og:url" content="https://fuhaochina.github.io/fuhao-card/">
+
+<style>
+/* ============ 设计变量：极简商务 · 素雅（宣纸 + 墨 + 青瓷） ============ */
+:root{
+  --bg:#eae6dd;
+  --card:#fbf9f5;
+  --ink:#333630;
+  --ink-2:#4e534c;
+  --muted:#7a8078;
+  --faint:#a9aea6;
+  --line:#e7e1d6;
+  --line-2:#f0ece3;
+  --accent:#6d8a78;
+  --accent-soft:#eaf0ec;
+  --btn:#4c5a50;
+  --btn-hover:#414e45;
+  --radius:20px;
+  --shadow:0 1px 2px rgba(60,52,40,.05), 0 18px 44px -20px rgba(60,52,40,.26);
+  --tap:rgba(60,55,45,.05);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(900px 380px at 50% -140px, #fffdf8 0%, rgba(255,255,255,0) 70%),
+    var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","HarmonyOS Sans SC","Noto Sans SC",sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  justify-content:center;
+  padding:0 16px calc(40px + env(safe-area-inset-bottom));
+}
+button,input,textarea,a{font:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+.icon{width:20px;height:20px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+/* hidden 属性必须压过组件自身的 display，否则空徽章会漏出来 */
+[hidden]{display:none !important}
+
+/* ============ 卡片 ============ */
+.card{
+  width:100%;
+  max-width:520px;
+  margin:28px 0 0;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.card-top{height:3px;background:linear-gradient(90deg,#46514a 0%,#6d7d72 55%,#a8b6a6 100%)}
+
+/* ---- 头像区 ---- */
+.profile{padding:34px 26px 28px;text-align:center}
+.avatar{
+  width:92px;height:92px;margin:0 auto 16px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(145deg,#6f7f72,#414c44);
+  color:#fff;font-size:30px;font-weight:600;letter-spacing:2px;
+  box-shadow:0 0 0 5px #fff, 0 0 0 6px var(--line);
+  overflow:hidden;
+}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.name{margin:0;font-size:27px;font-weight:650;letter-spacing:.5px;line-height:1.25}
+.role{margin:7px 0 0;font-size:15px;color:var(--ink-2)}
+.role .sep{color:var(--faint);margin:0 7px}
+.chip{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:14px;padding:4px 12px;border-radius:999px;
+  background:var(--line-2);color:var(--muted);font-size:13px;
+}
+.chip .icon{width:14px;height:14px;stroke-width:1.8}
+.tagline{
+  margin:18px auto 0;max-width:26em;
+  font-size:16px;color:var(--ink-2);line-height:1.7;
+}
+.divider{height:1px;background:var(--line-2);margin:0 26px}
+
+/* ---- 区块 ---- */
+.section{padding:26px}
+.section + .section{border-top:1px solid var(--line-2)}
+.section-title{
+  margin:0 0 14px;font-size:12px;font-weight:600;letter-spacing:1.4px;
+  color:var(--faint);text-transform:uppercase;
+}
+
+/* ---- 主按钮：保存到通讯录 ---- */
+.cta{
+  display:block;width:100%;
+  padding:15px 18px;border:0;border-radius:14px;
+  background:var(--btn);color:#fff;cursor:pointer;
+  font-size:16.5px;font-weight:600;letter-spacing:.4px;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  transition:transform .12s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow:0 10px 22px -14px rgba(60,52,40,.55);
+}
+.cta:active{transform:scale(.985);background:var(--btn-hover)}
+.cta .icon{width:21px;height:21px}
+.cta-sub{
+  margin:9px 0 0;text-align:center;font-size:12.5px;color:var(--faint);line-height:1.5;
+}
+
+/* ---- 次级操作三宫格 ---- */
+.tiles{display:grid;grid-template-columns:repeat(var(--cols,3),1fr);gap:10px;margin-top:14px}
+.tile{
+  border:1px solid var(--line);background:#fff;border-radius:13px;
+  padding:13px 6px 11px;cursor:pointer;text-align:center;
+  transition:background .15s ease, border-color .15s ease, transform .12s ease;
+}
+.tile:active{transform:scale(.97);background:var(--tap);border-color:#dfe2e7}
+.tile .icon{width:21px;height:21px;color:var(--ink);display:block;margin:0 auto 6px}
+.tile span{display:block;font-size:12.5px;color:var(--ink-2);letter-spacing:.2px}
+.tile small{display:block;font-size:11px;color:var(--faint);margin-top:3px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 4px}
+
+/* ---- 联系方式行 ---- */
+.rows{display:flex;flex-direction:column;gap:2px}
+.row{
+  display:flex;align-items:center;gap:12px;
+  padding:13px 4px;border-bottom:1px solid var(--line-2);
+  cursor:pointer;transition:background .15s ease;border-radius:8px;
+}
+.row:last-child{border-bottom:0}
+.row:active{background:var(--tap)}
+.row .icon{width:18px;height:18px;color:var(--muted)}
+.row .k{font-size:13px;color:var(--muted);width:52px;flex:0 0 auto}
+.row .v{font-size:15px;color:var(--ink);flex:1 1 auto;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .v-email{font-size:14px;white-space:normal;word-break:break-all;line-height:1.5}
+.row .v-wrap{white-space:normal;line-height:1.5}
+.row .copy-hint{font-size:12px;color:var(--faint);flex:0 0 auto}
+
+/* ---- 合作方向 ---- */
+.points{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px}
+.points li{display:flex;gap:11px;align-items:flex-start}
+.points .dot{
+  flex:0 0 auto;width:7px;height:7px;border-radius:50%;
+  background:var(--accent);margin-top:9px;
+}
+.points .t{font-size:15px;font-weight:600;color:var(--ink);line-height:1.5}
+.points .d{font-size:13.5px;color:var(--muted);line-height:1.6;margin-top:2px}
+
+/* ---- 页脚 ---- */
+.footer{padding:22px 26px calc(26px + env(safe-area-inset-bottom));text-align:center;
+  border-top:1px solid var(--line-2);background:#f7f4ed}
+.footer-actions{display:flex;justify-content:center;gap:22px;flex-wrap:wrap}
+.linkbtn{
+  border:0;background:none;padding:6px 2px;cursor:pointer;
+  font-size:13.5px;color:var(--muted);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.linkbtn:active{color:var(--ink)}
+.linkbtn .icon{width:16px;height:16px}
+.footer-note{margin:14px 0 0;font-size:11.5px;color:#b4bac3;line-height:1.6}
+
+/* ---- 微信提示条 ---- */
+.notice{
+  margin:14px 0 0;padding:11px 13px;border-radius:11px;
+  background:#f9f4e8;border:1px solid #ecdfc3;
+  font-size:12.5px;color:#78633a;line-height:1.6;display:none;
+}
+.notice.show{display:block}
+.notice b{font-weight:600}
+
+/* ---- 弹层 ---- */
+.mask{
+  position:fixed;inset:0;background:rgba(45,42,35,.45);
+  display:none;align-items:flex-end;justify-content:center;
+  padding:16px;z-index:60;backdrop-filter:blur(2px);
+}
+.mask.show{display:flex}
+.sheet{
+  width:100%;max-width:520px;background:#fdfbf7;border-radius:18px;
+  padding:22px 20px calc(20px + env(safe-area-inset-bottom));
+  animation:up .22s ease;
+}
+@keyframes up{from{transform:translateY(16px);opacity:.6}to{transform:none;opacity:1}}
+.sheet h3{margin:0 0 4px;font-size:17px;font-weight:600}
+.sheet p{margin:0 0 14px;font-size:13px;color:var(--muted);line-height:1.6}
+.sheet .kv{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line-2);font-size:14.5px}
+.sheet .kv span{color:var(--muted);flex:0 0 auto}
+.sheet .kv b{font-weight:500;text-align:right;word-break:break-all}
+.sheet-actions{display:flex;gap:10px;margin-top:16px}
+.btn{
+  flex:1;border:0;border-radius:12px;padding:13px;font-size:15px;font-weight:600;cursor:pointer;
+}
+.btn-dark{background:var(--btn);color:#fff}
+.btn-light{background:var(--line-2);color:var(--ink-2)}
+.btn:active{opacity:.85}
+.fallback-link{display:block;margin-top:12px;text-align:center;font-size:13px;color:var(--accent)}
+
+/* ---- Toast ---- */
+.toast{
+  position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom));
+  transform:translate(-50%,14px);z-index:90;
+  background:rgba(51,54,48,.94);color:#fff;
+  padding:11px 18px;border-radius:11px;font-size:14px;max-width:82vw;text-align:center;
+  opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease;
+  line-height:1.5;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:340px){
+  .profile{padding:28px 20px 24px}
+  .section{padding:22px 20px}
+  .name{font-size:24px}
+  .tile span{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- SVG 图标库 -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-call" viewBox="0 0 24 24"><path d="M6.6 3.6h3l1.5 3.9-2 1.5a12.2 12.2 0 0 0 5.9 5.9l1.5-2 3.9 1.5v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.6 5.8a2 2 0 0 1 2-2.2Z"/></symbol>
+  <symbol id="i-wechat" viewBox="0 0 24 24"><path d="M20.5 11.8c0 3.9-3.6 7-8 7a9.7 9.7 0 0 1-2.6-.35L6 20.2l.9-2.9a6.6 6.6 0 0 1-2.4-4.9c0-3.9 3.6-7 8-7s8 3.1 8 6.4Z"/><circle cx="9" cy="11" r=".9" fill="currentColor" stroke="none"/><circle cx="15" cy="11" r=".9" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path d="m3.6 7 8.4 6 8.4-6"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2.4"/><circle cx="8.6" cy="10" r="2.3"/><path d="M5.4 16.4c.6-1.7 1.9-2.6 3.2-2.6s2.6.9 3.2 2.6"/><path d="M16.2 11.4v4.2M14.1 13.5h4.2"/></symbol>
+  <symbol id="i-org" viewBox="0 0 24 24"><path d="M4 20.5V5.8L12 2.4l8 3.4v14.7"/><path d="M9.4 20.5V16h5.2v4.5"/><path d="M7.8 9h1.6M14.6 9h1.6M7.8 12.6h1.6M14.6 12.6h1.6"/></symbol>
+  <symbol id="i-case" viewBox="0 0 24 24"><rect x="3" y="7.4" width="18" height="12.2" rx="2.2"/><path d="M8.8 7.4V6.2A1.8 1.8 0 0 1 10.6 4.4h2.8a1.8 1.8 0 0 1 1.8 1.8v1.2M3 12.4h18"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5.6" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.4" r="2.6"/><path d="m8.4 10.7 7.2-3.6M8.4 13.3l7.2 3.6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15.5 6.4V5.6a2 2 0 0 0-2-2H5.6a2 2 0 0 0-2 2v7.9a2 2 0 0 0 2 2h.8"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-text" viewBox="0 0 24 24"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></symbol>
+</svg>
+
+<main class="card">
+  <div class="card-top"></div>
+
+  <!-- ========== 个人信息 ========== -->
+  <header class="profile">
+    <div class="avatar" id="avatar">
+      <span id="avatarText">名</span>
+    </div>
+    <h1 class="name" id="name">你的名字</h1>
+    <p class="role"><span id="title">你的职位</span><span class="sep">·</span><span id="company">你的公司 / 单位</span></p>
+    <div class="chip" id="cityChip" hidden><svg class="icon"><use href="#i-pin"/></svg><span id="city"></span></div>
+    <p class="tagline" id="tagline">用一句话说清你是谁、做什么。</p>
+  </header>
+
+  <div class="divider"></div>
+
+  <!-- ========== 主操作：保存到通讯录 ========== -->
+  <section class="section">
+    <button class="cta" id="saveBtn">
+      <svg class="icon"><use href="#i-card"/></svg>
+      <span>保存到手机通讯录</span>
+    </button>
+    <p class="cta-sub" id="ctaSub"></p>
+
+    <div class="tiles" id="tiles">
+      <a class="tile" id="callBtn" href="tel:13871249092" hidden>
+        <svg class="icon"><use href="#i-call"/></svg>
+        <span>拨打</span><small id="callHint">电话</small>
+      </a>
+      <button class="tile" id="wechatBtn" hidden>
+        <svg class="icon"><use href="#i-wechat"/></svg>
+        <span>加微信</span><small id="wechatHint">微信号</small>
+      </button>
+      <a class="tile" id="mailBtn" href="mailto:119077750@qq.com" hidden>
+        <svg class="icon"><use href="#i-mail"/></svg>
+        <span>发邮件</span><small id="mailHint">邮箱</small>
+      </a>
+    </div>
+
+    <div class="notice" id="wxNotice">
+      在微信内打开时，建议点右上角 <b>···</b> → <b>在浏览器中打开</b>，即可直接保存到通讯录。
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ========== 联系方式 ========== -->
+  <section class="section">
+    <h2 class="section-title">联系方式</h2>
+    <div class="rows" id="rows"></div>
+  </section>
+
+  <div class="divider" id="pointsDivider"></div>
+
+  <!-- ========== 合作方向 ========== -->
+  <section class="section" id="pointsSection">
+    <h2 class="section-title">我能提供什么</h2>
+    <ul class="points" id="points"></ul>
+  </section>
+
+  <!-- ========== 页脚 ========== -->
+  <footer class="footer">
+    <div class="footer-actions">
+      <button class="linkbtn" id="shareBtn"><svg class="icon"><use href="#i-share"/></svg>分享名片</button>
+      <button class="linkbtn" id="copyAllBtn"><svg class="icon"><use href="#i-text"/></svg>复制文字名片</button>
+      <button class="linkbtn" id="qrBtn" hidden><svg class="icon"><use href="#i-wechat"/></svg>微信二维码</button>
+    </div>
+    <p class="footer-note" id="footNote"></p>
+  </footer>
+</main>
+
+<!-- ========== 兜底弹层 ========== -->
+<div class="mask" id="mask">
+  <div class="sheet">
+    <h3>我的名片</h3>
+    <p>长按下方文字即可复制，或点击「复制全部信息」。</p>
+    <div id="sheetRows"></div>
+    <div class="sheet-actions">
+      <button class="btn btn-light" id="sheetClose">关闭</button>
+      <button class="btn btn-dark" id="sheetCopy">复制全部信息</button>
+    </div>
+    <a class="fallback-link" id="vcardLink" hidden>点这里直接下载名片文件 (.vcf)</a>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+ *  ① 你只需要改这一块（PROFILE），页面其它部分会自动跟着变
+ * ========================================================== */
+const PROFILE = {
+  name:      '傅浩',                // 姓名
+  surname:   '傅',                  // 姓（中文名建议填，导入通讯录更准）
+  givenName: '浩',                  // 名
+  title:     '技术质量与数字化管理部 副部长',  // 职位
+  company:   '中冶武勘工程技术有限公司',        // 单位
+  city:      '',                    // 城市，如「武汉」——没填则不显示
+  country:   '中国',                // 国家 / 地区
+  tagline:   '',                    // 一句话定位——没填则整行不显示
+  phone:     '13871249092',         // 手机号
+  wechat:    '',                    // 微信号——没填则「加微信」按钮整块隐藏
+  email:     '119077750@qq.com',    // 邮箱
+  url:       '',                    // 个人主页 / 公司主页（可选）
+  avatar:    '',                    // 头像图片路径，如 assets/avatar.jpg（留空用姓氏字）
+  qrWechat:  '',                    // 微信二维码图片路径，如 assets/wechat-qr.jpg（留空则不显示入口）
+  highlights: []                    // 「我能提供什么」，如 [{t:'标题', d:'一句话说明'}]
+};
+
+/* ============================================================
+ *  ② 以下为页面逻辑，一般不需要改
+ * ========================================================== */
+const $ = id => document.getElementById(id);
+const P = PROFILE;
+
+/* ---------- 渲染 ---------- */
+function render(){
+  document.title = P.name + ' · 商务名片';
+
+  // 头像
+  const av = $('avatar');
+  if(P.avatar){
+    av.innerHTML = '<img src="' + P.avatar + '" alt="' + esc(P.name) + '">';
+  }else{
+    const initial = (P.name || '名').trim().slice(0,1);
+    av.innerHTML = '<span>' + esc(initial) + '</span>';
+  }
+  $('name').textContent = P.name;
+  $('title').textContent = P.title;
+  $('company').textContent = P.company;
+  $('tagline').textContent = P.tagline || '';
+  $('tagline').hidden = !P.tagline;
+  if(P.city){ $('cityChip').hidden = false; $('city').textContent = P.city; }
+  else { $('cityChip').hidden = true; }
+
+  // 次级按钮：只显示填了内容的，列数跟着走
+  const tiles = [];
+  if(P.phone){
+    $('callBtn').hidden = false;
+    $('callBtn').setAttribute('href', 'tel:' + P.phone.replace(/[^\d+]/g,''));
+    $('callHint').textContent = P.phone; tiles.push(1);
+  } else { $('callBtn').hidden = true; }
+  if(P.wechat){ $('wechatBtn').hidden = false; $('wechatHint').textContent = P.wechat; tiles.push(1); }
+  else { $('wechatBtn').hidden = true; }
+  if(P.email){
+    $('mailBtn').hidden = false;
+    $('mailBtn').setAttribute('href', 'mailto:' + P.email);
+    $('mailHint').textContent = P.email.split('@').pop(); tiles.push(1);
+  } else { $('mailBtn').hidden = true; }
+  $('tiles').style.setProperty('--cols', tiles.length);
+  $('tiles').hidden = tiles.length === 0;
+
+  // 主按钮副标题
+  const extras = [];
+  if(P.phone) extras.push('直接拨号');
+  if(P.email) extras.push('发送邮件');
+  if(P.wechat) extras.push('加为微信好友');
+  $('ctaSub').innerHTML = '一键把姓名、单位、职位、电话存进手机通讯录' +
+    (extras.length ? '<br>导入后可直接' + extras.join(' / ') : '');
+
+  // 联系方式行
+  const rows = [];
+  if(P.company) rows.push({icon:'i-org', k:'单位', v:P.company, copy:false, cls:'v-wrap'});
+  if(P.title)   rows.push({icon:'i-case', k:'职位', v:P.title, copy:false, cls:'v-wrap'});
+  if(P.phone)   rows.push({icon:'i-call', k:'电话', v:P.phone, copy:true});
+  if(P.wechat)  rows.push({icon:'i-wechat', k:'微信', v:P.wechat, copy:true});
+  if(P.email)   rows.push({icon:'i-mail', k:'邮箱', v:P.email, copy:true, cls:'v-email'});
+  if(P.city)    rows.push({icon:'i-pin', k:'城市', v:P.city, copy:false});
+  $('rows').innerHTML = rows.map(r =>
+    '<div class="row" data-copy="' + (r.copy ? esc(r.v) : '') + '">' +
+      '<svg class="icon"><use href="#' + r.icon + '"/></svg>' +
+      '<span class="k">' + r.k + '</span>' +
+      '<span class="v' + (r.cls ? ' ' + r.cls : '') + '">' + esc(r.v) + '</span>' +
+      (r.copy ? '<span class="copy-hint">复制</span>' : '') +
+    '</div>'
+  ).join('');
+  if(!rows.length){ $('rows').innerHTML = '<div class="row"><span class="v" style="color:#9aa1ac">联系方式待填写</span></div>'; }
+
+  // 合作方向
+  const hs = (P.highlights || []).filter(h => h && h.t);
+  $('pointsSection').hidden = hs.length === 0;
+  $('pointsDivider').hidden = hs.length === 0;
+  $('points').innerHTML = hs.map(h =>
+    '<li><span class="dot"></span><div><div class="t">' + esc(h.t) + '</div>' +
+    (h.d ? '<div class="d">' + esc(h.d) + '</div>' : '') + '</div></li>'
+  ).join('');
+
+  // 二维码入口
+  if(P.qrWechat){ $('qrBtn').hidden = false; }
+  $('footNote').innerHTML = P.url
+    ? ('个人主页：<a href="' + esc(P.url) + '" target="_blank" rel="noopener">' + esc(P.url) + '</a>')
+    : '点击上方按钮即可保存名片 · 祝合作愉快';
+}
+
+/* ---------- 工具 ---------- */
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c =>
+    ({'&':'&','<':'<','>':'>','"':'"',"'":'&#39;'}[c]));
+}
+function toast(msg, ms){
+  const t = $('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => t.classList.remove('show'), ms || 2200);
+}
+async function copyText(text){
+  if(!text) return false;
+  try{
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(text); return true;
+    }
+  }catch(e){}
+  try{
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly','');
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;';
+    document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0, ta.value.length);
+    const ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok;
+  }catch(e){ return false; }
+}
+
+/* ---------- vCard（联系人名片） ---------- */
+function vEscape(v){
+  return String(v == null ? '' : v)
+    .replace(/\\/g,'\\\\').replace(/\r?\n/g,'\\n')
+    .replace(/,/g,'\\,').replace(/;/g,'\\;');
+}
+function buildVCard(){
+  const lines = [];
+  const last  = P.surname  || '';
+  const first = P.givenName || (P.surname ? '' : (P.name || ''));
+  lines.push('BEGIN:VCARD');
+  lines.push('VERSION:3.0');
+  lines.push('N:' + vEscape(last) + ';' + vEscape(first) + ';;;');
+  lines.push('FN:' + vEscape(P.name));
+  if(P.company) lines.push('ORG:' + vEscape(P.company));
+  if(P.title)   lines.push('TITLE:' + vEscape(P.title));
+  if(P.phone)   lines.push('TEL;TYPE=CELL,VOICE:' + vEscape(P.phone));
+  if(P.email)   lines.push('EMAIL;TYPE=INTERNET:' + vEscape(P.email));
+  if(P.city){
+    // vCard ADR 字段序：PoBox;Ext;Street;Locality;Region;PostalCode;Country
+    lines.push('ADR;TYPE=WORK:;;;' + vEscape(P.city) + ';;' + vEscape(P.country || '中国'));
+  }
+  if(P.tagline) lines.push('NOTE:' + vEscape(P.tagline));
+  if(P.url)     lines.push('URL:' + vEscape(P.url));
+  lines.push('REV:' + new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,''));
+  lines.push('END:VCARD');
+  return lines.join('\r\n') + '\r\n';
+}
+function vcfBlob(){
+  return new Blob([buildVCard()], {type:'text/vcard;charset=utf-8'});
+}
+function vcfFile(){
+  return new File([vcfBlob()], (P.name || 'contact') + '.vcf', {type:'text/vcard'});
+}
+function downloadVCard(){
+  const blob = vcfBlob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = (P.name || 'contact') + '.vcf';
+  a.rel = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 2000);
+}
+
+/* ---------- 动作 ---------- */
+function onSave(){
+  // 1) 系统分享（iOS / 新版 Android 支持把 .vcf 直接交给系统）
+  try{
+    if(navigator.canShare && navigator.canShare({ files:[vcfFile()] })){
+      navigator.share({ files:[vcfFile()], title:P.name, text:'我的名片' })
+        .then(()=> toast('已调起系统分享'))
+        .catch(()=> downloadFallback());
+      return;
+    }
+  }catch(e){}
+  downloadFallback();
+}
+function downloadFallback(){
+  try{
+    downloadVCard();
+    toast('已生成名片文件，请在弹出的预览里点「添加」');
+  }catch(e){
+    openSheet();
+  }
+}
+function openSheet(){
+  const items = [
+    ['姓名', P.name], ['单位', P.company], ['职位', P.title],
+    ['电话', P.phone], ['微信', P.wechat], ['邮箱', P.email], ['城市', P.city]
+  ].filter(x => x[1]);
+  $('sheetRows').innerHTML = items.map(x =>
+    '<div class="kv"><span>' + x[0] + '</span><b>' + esc(x[1]) + '</b></div>'
+  ).join('');
+  const link = $('vcardLink');
+  try{
+    link.href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(buildVCard());
+    link.hidden = false;
+  }catch(e){ link.hidden = true; }
+  $('mask').classList.add('show');
+}
+function textCard(){
+  const L = [];
+  if(P.name)    L.push('姓名：' + P.name);
+  if(P.title)   L.push('职位：' + P.title);
+  if(P.company) L.push('单位：' + P.company);
+  if(P.phone)   L.push('电话：' + P.phone);
+  if(P.wechat)  L.push('微信：' + P.wechat);
+  if(P.email)   L.push('邮箱：' + P.email);
+  if(P.city)    L.push('城市：' + P.city);
+  if(P.tagline) L.push(P.tagline);
+  return L.join('\n');
+}
+
+/* ---------- 事件绑定 ---------- */
+$('saveBtn').addEventListener('click', onSave);
+
+/* 拨打 / 发邮件用原生 tel: 与 mailto: 链接，手机上系统直接接管；
+   长按还能复制号码，不需要额外 JS 跳转。 */
+
+$('wechatBtn').addEventListener('click', async () => {
+  if(!P.wechat){ toast('还没填微信号'); return; }
+  const ok = await copyText(P.wechat);
+  if(ok){
+    toast('微信号已复制：' + P.wechat + '，到微信搜索框粘贴即可添加');
+  }else{
+    openSheet();
+  }
+});
+
+$('rows').addEventListener('click', async e => {
+  const row = e.target.closest('.row');
+  if(!row) return;
+  const v = row.getAttribute('data-copy');
+  if(!v) return;
+  const ok = await copyText(v);
+  toast(ok ? ('已复制：' + v) : '复制失败，请长按手动复制');
+});
+
+$('shareBtn').addEventListener('click', async () => {
+  const data = { title:(P.name || '商务名片'), text:P.tagline || '', url:location.href };
+  if(navigator.share){
+    try{ await navigator.share(data); }catch(e){}
+  }else{
+    const ok = await copyText(textCard() + '\n' + location.href);
+    toast(ok ? '名片内容已复制，去微信粘贴发送' : '当前浏览器不支持分享');
+  }
+});
+
+$('copyAllBtn').addEventListener('click', async () => {
+  const ok = await copyText(textCard());
+  toast(ok ? '文字名片已复制，去微信粘贴发送' : '复制失败，请长按手动复制');
+});
+
+$('qrBtn').addEventListener('click', () => {
+  if(!P.qrWechat) return;
+  openSheet();
+});
+
+$('sheetCopy').addEventListener('click', async () => {
+  const ok = await copyText(textCard());
+  toast(ok ? '已复制，去微信粘贴发送' : '复制失败，请长按手动复制');
+});
+$('sheetClose').addEventListener('click', () => $('mask').classList.remove('show'));
+$('mask').addEventListener('click', e => { if(e.target === $('mask')) $('mask').classList.remove('show'); });
+
+/* ---------- 初始化 ---------- */
+render();
+if(/MicroMessenger/i.test(navigator.userAgent)){
+  $('wxNotice').classList.add('show');
+}
+</script>
+</body>
+</html>
